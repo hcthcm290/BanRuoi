@@ -23,6 +23,7 @@ public class DropItem : MonoBehaviour
         if (itemPrefab == null) return;
 
         float result = UnityEngine.Random.Range(0.0f, 1.0f);
+        Debug.Log(result);
 
         if (result <= chance)
         {

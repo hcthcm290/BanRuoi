@@ -13,6 +13,7 @@ public class SimpleEnemyMovement : BaseEnemyMovement
 
     private new void Move()
     {
+        if (!canMove) return;
         this.transform.position += speed * Time.deltaTime * direction.normalized;
     }
 
