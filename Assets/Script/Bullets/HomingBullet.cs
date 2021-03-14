@@ -5,6 +5,7 @@ using UnityEngine;
 public class HomingBullet : BaseBullet
 {
     GameObject target;
+    List<GameObject> listTargets;
 
     public delegate void OnTargetFound(GameObject target);
     public event OnTargetFound targetFound;
@@ -27,6 +28,7 @@ public class HomingBullet : BaseBullet
     void Start()
     {
         direction = new Vector3(0, 1, 0);
+        listTargets = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -49,6 +51,20 @@ public class HomingBullet : BaseBullet
         this.transform.position += velocity * Time.deltaTime;
         */
 
+        listTargets.RemoveAll((x) => { return x == null; });
+
+        if (activated && target == null )
+        {
+            if(listTargets.Count != 0)
+            {
+                int r = Random.Range(0, listTargets.Count - 1);
+
+                target = listTargets[r];
+
+                listTargets.RemoveAt(r);
+            }
+        }
+
         if (activated && target != null)
         {
             if (time < Time.deltaTime) time = Time.deltaTime;
@@ -58,6 +74,11 @@ public class HomingBullet : BaseBullet
                 target.transform.position);
             time -= Time.deltaTime;
         }
+        else if (activated && target == null)
+        {
+            this.transform.position += speed * Time.deltaTime * direction;
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -81,6 +102,19 @@ public class HomingBullet : BaseBullet
                     }
                 }
             }
+        }
+
+        if(collision.gameObject.tag == "Enemy" && target != null && target != collision.gameObject)
+        {
+            listTargets.Add(collision.gameObject);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject != null)
+        {
+            listTargets.Remove(collision.gameObject);
         }
     }
 
