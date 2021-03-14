@@ -16,7 +16,10 @@ public class HealthBase : MonoBehaviour
 
         currentHP = Mathf.Clamp(currentHP, 0, maxHP);
 
-        HPChange.Invoke(currentHP);
+        if(HPChange != null)
+        {
+            HPChange.Invoke(currentHP);
+        }
     }
 
     public void Heal(float value)
