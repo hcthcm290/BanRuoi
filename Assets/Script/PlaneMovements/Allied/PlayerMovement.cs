@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static Vector3 playerPosition;
+
     [SerializeField]
     CircleCollider2D TouchZone;
     bool canMove;
@@ -21,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     {
         CheckCanMove();
         Move();
+
+        playerPosition = transform.position;
     }
 
     bool CheckCanMove()

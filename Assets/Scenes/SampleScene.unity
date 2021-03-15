@@ -451,7 +451,7 @@ GameObject:
   - component: {fileID: 357468442}
   - component: {fileID: 357468443}
   m_Layer: 0
-  m_Name: HomingCanon
+  m_Name: HomingCanon right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -469,7 +469,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 448531292}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &357468443
 MonoBehaviour:
@@ -551,6 +551,7 @@ Transform:
   - {fileID: 1164947629}
   - {fileID: 1174853145}
   - {fileID: 574166110}
+  - {fileID: 1789096637}
   - {fileID: 357468442}
   m_Father: {fileID: 572949742}
   m_RootOrder: 5
@@ -11730,6 +11731,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1789096636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1789096637}
+  - component: {fileID: 1789096638}
+  m_Layer: 0
+  m_Name: HomingCanon left
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1789096637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789096636}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.37, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 448531292}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1789096638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789096636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4145d327ddcad9449819e6a95c1b02ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  homingBullet: {fileID: 573020672516768346, guid: 7d837571a2dcba84182c1a1a55f56531,
+    type: 3}
+  interval: 2
 --- !u!1 &1819772831
 GameObject:
   m_ObjectHideFlags: 0

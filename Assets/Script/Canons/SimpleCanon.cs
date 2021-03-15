@@ -5,7 +5,7 @@ using UnityEngine;
 public class SimpleCanon : BaseCanon
 {
     [SerializeField]
-    BaseBullet bulletPreb;
+    protected BaseBullet bulletPreb;
 
     [SerializeField]
     protected float interval;

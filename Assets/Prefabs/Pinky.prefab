@@ -259,6 +259,7 @@ GameObject:
   - component: {fileID: 3351407300687098170}
   - component: {fileID: -3851501042136887836}
   - component: {fileID: 7612905483702081374}
+  - component: {fileID: 2433848135126311519}
   m_Layer: 0
   m_Name: Pinky
   m_TagString: Enemy
@@ -391,8 +392,24 @@ MonoBehaviour:
   currentTargetIndex: 0
   timeout: 10
   direction: {x: 0, y: -1, z: 0}
-  speed: 2
+  speed: 2.6
   turnRate: 230
+--- !u!114 &2433848135126311519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3351407300687098119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e95351fbc76122409eb90a74400d801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPreb: {fileID: 1810358422861189654, guid: b538a7025571ef1449b26816b1e96730,
+    type: 3}
+  interval: 0
+  delayFirstTime: 0
 --- !u!1 &3351407300810065043
 GameObject:
   m_ObjectHideFlags: 0
