@@ -19,4 +19,9 @@ public class SpawnEnemyBase : MonoBehaviour
     {
         
     }
+
+    public void StopSpawning()
+    {
+
+    }
 }
