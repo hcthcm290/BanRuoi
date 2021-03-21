@@ -7,6 +7,9 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField]
     SpawnEnemyBase[] listSpawner;
 
+    [SerializeField]
+    TextDialog textDialog;
+
     SpawnEnemyBase currentSpawner;
 
     int totalWaveCount;
@@ -27,6 +30,12 @@ public class WaveSpawner : MonoBehaviour
             int random = Random.Range(0, listSpawner.Length - 1);
 
             currentSpawner = Instantiate(listSpawner[random]);
+        }
+        if(totalWaveCount >= 10 && currentSpawner == null && textDialog != null)
+        {
+            textDialog.content = "Beware! The Master of Puppets is\ncoming!";
+            textDialog.Show();
+            textDialog = null;
         }
     }
 }

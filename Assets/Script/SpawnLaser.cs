@@ -18,6 +18,8 @@ public class SpawnLaser : SpawnEnemyBase
     [SerializeField]
     GameObject LaserPrefab;
 
+    int totalSpawn;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,10 +44,13 @@ public class SpawnLaser : SpawnEnemyBase
 
     public new void Spawn()
     {
+        if (totalSpawn >= 4) return;
+
         GameObject laser = Instantiate(LaserPrefab);
         laser.transform.position = this.transform.position;
 
         currentInterval = Random.Range(randomIntervalLow, randomIntervalHigh);
         time = 0;
+        totalSpawn++;
     }
 }
