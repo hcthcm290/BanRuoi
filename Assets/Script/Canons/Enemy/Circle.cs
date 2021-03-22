@@ -58,6 +58,7 @@ public class Circle : BaseCanon
 
             bullet.Direction = Quaternion.Euler(0, 0, i * angle) * baseDirection;
             bullet.transform.position = transform.position;
+            
         }
     }
 
@@ -67,7 +68,7 @@ public class Circle : BaseCanon
         countWaveTime = 0;
         canShoot = true;
 
-        numberOfWave = Random.Range(5, 12);
+        numberOfWave = Random.Range(25, 40);
         waveAngleInterval = Random.Range(10, 14);
         numberBulletPerWave = Random.Range(15, 18);
         waveInterval = Random.Range(0.12f, 0.14f);

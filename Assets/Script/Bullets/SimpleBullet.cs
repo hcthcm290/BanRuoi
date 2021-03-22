@@ -8,7 +8,7 @@ public class SimpleBullet : BaseBullet
     public Vector3 Direction;
 
     [SerializeField]
-    float speed;
+    public float speed;
 
     public new void Move()
     {
