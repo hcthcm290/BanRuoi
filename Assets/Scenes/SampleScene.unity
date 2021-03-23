@@ -2430,14 +2430,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e079c3a776e134d85abd9b08ecc3d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1810358422861189654, guid: b538a7025571ef1449b26816b1e96730,
+  bulletPrefab: {fileID: 8725830047875650075, guid: a88d374cd92d15344b810de4cc223e9e,
     type: 3}
   Canons:
   - {fileID: 559419988}
   - {fileID: 369562987}
   - {fileID: 395072606}
   waveAngleInterval: 15
-  numberOfWave: 0
+  numberOfWave: 10
   waveInterval: 0
 --- !u!1 &1069798917
 GameObject:
@@ -13679,14 +13679,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e079c3a776e134d85abd9b08ecc3d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1810358422861189654, guid: b538a7025571ef1449b26816b1e96730,
+  bulletPrefab: {fileID: 8725830047875650075, guid: a88d374cd92d15344b810de4cc223e9e,
     type: 3}
   Canons:
   - {fileID: 919785610}
   - {fileID: 55520118}
   - {fileID: 1434510148}
   waveAngleInterval: 15
-  numberOfWave: 0
+  numberOfWave: 10
   waveInterval: 0
 --- !u!1 &1900944485
 GameObject:

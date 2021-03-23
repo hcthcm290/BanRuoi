@@ -24,7 +24,7 @@ public class Circle : BaseCanon
 
     public void Start()
     {
-        StartShooting();
+        //StartShooting();
     }
 
     public void Update()

@@ -25,6 +25,7 @@ public class BossTripleCanon : BaseCanon
 
     public void Start()
     {
+        waveIndex = numberOfWave;
     }
 
     public void Update()
@@ -54,10 +55,11 @@ public class BossTripleCanon : BaseCanon
 
         baseDirection.Normalize();
 
-        float angle = Random.Range(-waveAngleInterval, waveAngleInterval);
         for (int i = 0; i < Canons.Count; i++)
         {
             SimpleEnemyBulletMovement bullet = Instantiate(bulletPrefab);
+
+            float angle = Random.Range(-waveAngleInterval, waveAngleInterval);
 
             bullet.Direction = Quaternion.Euler(0, 0, angle) * baseDirection;
             bullet.transform.position = Canons[i].position;
@@ -72,8 +74,6 @@ public class BossTripleCanon : BaseCanon
         waveIndex = 0;
         countWaveTime = 0;
         canShoot = true;
-
-        numberOfWave = Random.Range(15, 20);
     }
 
     public new void StopShooting()
