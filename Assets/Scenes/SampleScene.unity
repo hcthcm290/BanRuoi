@@ -2436,9 +2436,10 @@ MonoBehaviour:
   - {fileID: 559419988}
   - {fileID: 369562987}
   - {fileID: 395072606}
-  waveAngleInterval: 15
+  waveAngleInterval: 20
   numberOfWave: 10
   waveInterval: 0
+  interpolateFactor: 1.5
 --- !u!1 &1069798917
 GameObject:
   m_ObjectHideFlags: 0
@@ -13685,9 +13686,10 @@ MonoBehaviour:
   - {fileID: 919785610}
   - {fileID: 55520118}
   - {fileID: 1434510148}
-  waveAngleInterval: 15
+  waveAngleInterval: 20
   numberOfWave: 10
   waveInterval: 0
+  interpolateFactor: 1.5
 --- !u!1 &1900944485
 GameObject:
   m_ObjectHideFlags: 0

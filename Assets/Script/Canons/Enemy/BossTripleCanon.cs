@@ -23,6 +23,11 @@ public class BossTripleCanon : BaseCanon
 
     Vector2 baseDirection;
 
+    Vector3 prevPlayerPosition;
+
+    [SerializeField]
+    float interpolateFactor;
+
     public void Start()
     {
         waveIndex = numberOfWave;
@@ -47,11 +52,13 @@ public class BossTripleCanon : BaseCanon
         {
             StartShooting();
         }
+
+        prevPlayerPosition = PlayerMovement.playerPosition;
     }
 
     public new void CreateBullet()
     {
-        baseDirection = PlayerMovement.playerPosition - this.transform.position;
+        baseDirection = PlayerMovement.playerPosition + interpolateFactor*(PlayerMovement.playerPosition - prevPlayerPosition) - this.transform.position;
 
         baseDirection.Normalize();
 
