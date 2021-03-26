@@ -38,9 +38,13 @@ public class BossMovement : BaseEnemyMovement
     {
         this.transform.position += speed * Time.deltaTime * direction;
 
-        if(this.transform.position.x < mix_x || this.transform.position.x > max_x)
+        if(this.transform.position.x < mix_x)
         {
-            direction.x *= -1;
+            direction.x = Mathf.Abs(direction.x);
+        }
+        else if (this.transform.position.x > max_x)
+        {
+            direction.x = -Mathf.Abs(direction.x);
         }
     }
 

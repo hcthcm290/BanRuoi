@@ -49,7 +49,7 @@ public class Circle : BaseCanon
         }
     }
 
-    public new void CreateBullet() 
+    public override void CreateBullet() 
     {
         float angle = 360 / numberBulletPerWave;
         for(int i=0; i<numberBulletPerWave; i++)
@@ -62,7 +62,7 @@ public class Circle : BaseCanon
         }
     }
 
-    public new void StartShooting() 
+    public override void StartShooting() 
     {
         waveIndex = 0;
         countWaveTime = 0;
@@ -80,7 +80,7 @@ public class Circle : BaseCanon
         baseDirection.Normalize();
     }
 
-    public new void StopShooting() 
+    public override void StopShooting() 
     {
         canShoot = false;
     }

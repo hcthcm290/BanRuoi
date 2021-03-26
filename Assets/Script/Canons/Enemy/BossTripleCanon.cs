@@ -56,7 +56,7 @@ public class BossTripleCanon : BaseCanon
         prevPlayerPosition = PlayerMovement.playerPosition;
     }
 
-    public new void CreateBullet()
+    public override void CreateBullet()
     {
         baseDirection = PlayerMovement.playerPosition + interpolateFactor*(PlayerMovement.playerPosition - prevPlayerPosition) - this.transform.position;
 
@@ -76,14 +76,14 @@ public class BossTripleCanon : BaseCanon
         waveInterval = Random.Range(0.3f, 0.4f);
     }
 
-    public new void StartShooting()
+    public override void StartShooting()
     {
         waveIndex = 0;
         countWaveTime = 0;
         canShoot = true;
     }
 
-    public new void StopShooting()
+    public override void StopShooting()
     {
         canShoot = false;
     }

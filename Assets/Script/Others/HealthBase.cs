@@ -12,6 +12,7 @@ public class HealthBase : MonoBehaviour
 
     public void TakeDmg(float value)
     {
+        if (this.enabled == false) return;
         currentHP -= value;
 
         currentHP = Mathf.Clamp(currentHP, 0, maxHP);

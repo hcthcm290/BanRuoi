@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss : MonoBehaviour
+public class BossNormalCanon : BaseCanon
 {
     [SerializeField]
     List<Transform> Canons;
@@ -11,76 +11,96 @@ public class Boss : MonoBehaviour
     SimpleEnemyBulletMovement bulletPrefab;
 
     [SerializeField]
-    float waveAngleInterval;
-    public int numberOfWave;
-    int waveIndex;
+    int numberBulletPerWave;
+    int countBullet;
 
     bool canShoot;
 
     [SerializeField] 
     float waveInterval;
-    float countWaveTime;
+    [SerializeField]
+    float internalWaveInterval;
+    float countdown;
 
-    Vector2 baseDirection;
-
-    Vector3 prevPlayerPosition;
 
     public void Start()
     {
-        waveIndex = numberOfWave;
     }
 
     public void Update()
     {
-        if (canShoot && waveIndex < numberOfWave)
+        if (canShoot)
         {
-            countWaveTime += Time.deltaTime;
+            countdown -= Time.deltaTime;
 
-            if (countWaveTime >= waveInterval)
+            if (countdown <= 0)
             {
-                countWaveTime = 0;
                 CreateBullet();
-                waveIndex++;
 
+                countBullet--;
+                if(countBullet <= 0)
+                {
+                    countdown = waveInterval;
+                    countBullet = numberBulletPerWave;
+                }
+                else
+                {
+                    countdown = internalWaveInterval;
+                }
+            }
+        }
+        else if(countBullet > 0 && countBullet < numberBulletPerWave)
+        {
+            countdown -= Time.deltaTime;
+
+            if (countdown <= 0)
+            {
+                CreateBullet();
+
+                countBullet--;
+                if (countBullet <= 0)
+                {
+                    countdown = waveInterval;
+                }
+                else
+                {
+                    countdown = internalWaveInterval;
+                }
             }
         }
 
-        if (Input.GetKey(KeyCode.Alpha2) && waveIndex >= numberOfWave)
+        if (Input.GetKey(KeyCode.Alpha3) && !canShoot)
         {
             StartShooting();
         }
 
-        prevPlayerPosition = PlayerMovement.playerPosition;
+        if (Input.GetKey(KeyCode.Alpha4))
+        {
+            StopShooting();
+        }
     }
 
-    public new void CreateBullet()
+    public override void CreateBullet()
     {
-        baseDirection = PlayerMovement.playerPosition - this.transform.position;
-
-        baseDirection.Normalize();
-
         for (int i = 0; i < Canons.Count; i++)
         {
             SimpleEnemyBulletMovement bullet = Instantiate(bulletPrefab);
 
-            float angle = Random.Range(-waveAngleInterval, waveAngleInterval);
-
-            bullet.Direction = Quaternion.Euler(0, 0, angle) * baseDirection;
+            bullet.Direction = new Vector3(0, -1, 0);
             bullet.transform.position = Canons[i].position;
-            bullet.speed *= 0.8f;
+            bullet.speed *= 1.3f;
         }
 
-        waveInterval = Random.Range(0.3f, 0.4f);
     }
 
-    public new void StartShooting()
+    public override void StartShooting()
     {
-        waveIndex = 0;
-        countWaveTime = 0;
+        countdown = 0;
         canShoot = true;
+        countBullet = numberBulletPerWave;
     }
 
-    public new void StopShooting()
+    public override void StopShooting()
     {
         canShoot = false;
     }

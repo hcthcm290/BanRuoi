@@ -6,6 +6,8 @@ public class WaveSpawner : MonoBehaviour
 {
     [SerializeField]
     SpawnEnemyBase[] listSpawner;
+    [SerializeField]
+    BossBehaviour bossBehaviour;
 
     [SerializeField]
     TextDialog textDialog;
@@ -18,12 +20,13 @@ public class WaveSpawner : MonoBehaviour
     void Start()
     {
         totalWaveCount = 0;
+        bossBehaviour.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(totalWaveCount < 10 && currentSpawner == null)
+        if(totalWaveCount < 5 && currentSpawner == null)
         {
             totalWaveCount++;
 
@@ -31,11 +34,12 @@ public class WaveSpawner : MonoBehaviour
 
             currentSpawner = Instantiate(listSpawner[random]);
         }
-        if(totalWaveCount >= 10 && currentSpawner == null && textDialog != null)
+        if(totalWaveCount >= 5 && currentSpawner == null && textDialog != null)
         {
             textDialog.content = "Beware! The Master of Puppets is\ncoming!";
             textDialog.Show();
             textDialog = null;
+            bossBehaviour.enabled = true;
         }
     }
 }

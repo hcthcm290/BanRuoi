@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class BaseCanon : MonoBehaviour
 {
-    public void CreateBullet() { }
-    public void StartShooting() { }
-    public void StopShooting() { }
+    public virtual void CreateBullet() { }
+    public virtual void StartShooting() { }
+    public virtual void StopShooting() { }
 }
