@@ -133,7 +133,6 @@ public class TextDialog : MonoBehaviour
 
         countTime %= (1.0f / speed);
         countTime += Time.deltaTime;
-        Debug.Log(countTime);
     }
 
     public void Show()

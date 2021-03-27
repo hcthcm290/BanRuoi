@@ -14,6 +14,8 @@ public class WaveSpawner : MonoBehaviour
 
     SpawnEnemyBase currentSpawner;
 
+    WaveDatas data;
+
     int totalWaveCount;
 
     // Start is called before the first frame update
@@ -21,6 +23,8 @@ public class WaveSpawner : MonoBehaviour
     {
         totalWaveCount = 0;
         bossBehaviour.enabled = false;
+
+        data = (Resources.Load("GameConfig") as GameConfig).data;
     }
 
     // Update is called once per frame
@@ -41,5 +45,10 @@ public class WaveSpawner : MonoBehaviour
             textDialog = null;
             bossBehaviour.enabled = true;
         }
+    }
+
+    void ParseData(WaveDatas data) 
+    {
+        
     }
 }
