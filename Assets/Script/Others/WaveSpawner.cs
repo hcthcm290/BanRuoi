@@ -24,7 +24,7 @@ public class WaveSpawner : MonoBehaviour
         totalWaveCount = 0;
         bossBehaviour.enabled = false;
 
-        data = (Resources.Load("GameConfig") as GameConfig).data;
+        //data = (Resources.Load("GameConfig") as GameConfig).data;
     }
 
     // Update is called once per frame

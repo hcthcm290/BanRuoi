@@ -1,27 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
-[CreateAssetMenu(menuName = "Demo/Funny", fileName = "GameConfig")]
+[CreateAssetMenu(menuName = "Config/GameConfig", fileName = "GameConfig")]
 public class GameConfig : ScriptableObject
 {
-    public WaveDatas data;
+    [SerializeField] public List<PinkyConfig> baseConfigs;
+
+    //public WaveDatas data;
+
+    public void OnValidate()
+    {
+        baseConfigs.Clear();
+        baseConfigs.Add(CreateInstance<PinkyConfig>());
+    }
 }
 
 [System.Serializable]
 public class WaveDatas
 {
     public int id;
-    public List<WaveData> data;
+    public List<WaveData> listData;
 }
 
 [System.Serializable]
 public class WaveData
 {
     public int id;
-
-    public GameObject Prefabs;
+    [SerializeField] public BaseConfig config;
     public float delay;
-    public int maxNumber;
-    public float interval;
 }
