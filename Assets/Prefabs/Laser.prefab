@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2023009270404447565}
   - component: {fileID: 2023009270404447554}
+  - component: {fileID: 8547546322643816718}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -48,6 +49,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: -1, z: 0}
   speed: 1.25
+--- !u!114 &8547546322643816718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023009270404447564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18cdbd500d7cd784cab1bdbab8748a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DPS: 35
 --- !u!1 &2023009270447958530
 GameObject:
   m_ObjectHideFlags: 0

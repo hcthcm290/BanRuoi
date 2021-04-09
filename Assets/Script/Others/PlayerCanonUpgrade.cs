@@ -7,7 +7,7 @@ public class PlayerCanonUpgrade : MonoBehaviour
     [SerializeField]
     GameObject[] listCanon;
 
-    
+    [SerializeField]
     private int level = 1;
 
     // Start is called before the first frame update

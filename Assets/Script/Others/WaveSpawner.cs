@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
+    public static WaveSpawner _ins;
     [SerializeField]
     SpawnEnemyBase[] listSpawner;
     [SerializeField]
@@ -12,43 +13,59 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField]
     TextDialog textDialog;
 
-    SpawnEnemyBase currentSpawner;
-
-    WaveDatas data;
-
-    int totalWaveCount;
+    public int currentLv;
 
     // Start is called before the first frame update
     void Start()
     {
-        totalWaveCount = 0;
-        bossBehaviour.enabled = false;
-
-        //data = (Resources.Load("GameConfig") as GameConfig).data;
+        currentLv = 1;
+        _ins = this;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(totalWaveCount < 5 && currentSpawner == null)
-        {
-            totalWaveCount++;
+        //if(totalWaveCount < 5 && currentSpawner == null)
+        //{
+        //    totalWaveCount++;
 
-            int random = Random.Range(0, listSpawner.Length - 1);
+        //    int random = Random.Range(0, listSpawner.Length - 1);
 
-            currentSpawner = Instantiate(listSpawner[random]);
-        }
-        if(totalWaveCount >= 5 && currentSpawner == null && textDialog != null)
-        {
-            textDialog.content = "Beware! The Master of Puppets is\ncoming!";
-            textDialog.Show();
-            textDialog = null;
-            bossBehaviour.enabled = true;
-        }
+        //    currentSpawner = Instantiate(listSpawner[random]);
+        //}
+        //if(totalWaveCount >= 5 && currentSpawner == null && textDialog != null)
+        //{
+        //    textDialog.content = "Beware! The Master of Puppets is\ncoming!";
+        //    textDialog.Show();
+        //    textDialog = null;
+        //    bossBehaviour.enabled = true;
+        //}
     }
 
-    void ParseData(WaveDatas data) 
+    public void Spawn()
     {
+        string Folder = "Lv" + currentLv.ToString();
+        string File = "ConfigLv" + currentLv.ToString();
+        var configData = Resources.Load(Folder + "/" + File);
+
+        if (configData == null)
+        {
+            textDialog.content = "YOU WON!";
+            textDialog.Show();
+            return;
+        }
+
+        var data = (configData as GameConfig).baseConfigs;
         
+        foreach (var ins in data)
+        {
+            var configs = ins.GetData();
+
+            foreach (var config in configs)
+            {
+                IEnumerator enumerator = config.Create();
+                StartCoroutine(enumerator);
+            }
+        }
     }
 }

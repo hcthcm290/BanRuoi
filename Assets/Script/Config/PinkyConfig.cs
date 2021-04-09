@@ -2,25 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
+[CreateAssetMenu(menuName = "Config/PinkyConfig", fileName = "Pinky Config")]
 public class PinkyConfig : BaseConfig
+{
+    public List<PinkyConfigAsset> data;
+
+    public override List<BaseConfigAsset> GetData()
+    {
+        return data.ConvertAll<BaseConfigAsset>(x => (BaseConfigAsset)x);
+    }
+}
+[System.Serializable]
+public class PinkyConfigAsset: BaseConfigAsset
 {
     [SerializeField] public Vector3 startPosition;
     [SerializeField] public Vector3[] targets;
 
     [SerializeField] public int numberOfPinky;
-    [SerializeField] public int interval;
+    [SerializeField] public float interval;
 
-    public override void Create()
+    [SerializeField] public float delay;
+
+    public override IEnumerator Create()
     {
-        GameObject pinky = GameObject.Instantiate(prefab);
-        pinky.transform.position = startPosition;
+        yield return new WaitForSeconds(delay);
 
-        PinkyMovement pkMovement = pinky.GetComponent<PinkyMovement>();
-        if(pkMovement != null)
+        for (int i = 0; i < numberOfPinky; i++)
         {
-            pkMovement.targets = targets;
-        }
+            GameObject pinky = GameObject.Instantiate(prefab);
+            pinky.transform.position = startPosition;
 
+            PinkyMovement pkMovement = pinky.GetComponent<PinkyMovement>();
+            if (pkMovement != null)
+            {
+                pkMovement.targets = targets;
+            }
+
+            yield return new WaitForSeconds(interval);
+        }
     }
 }

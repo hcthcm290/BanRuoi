@@ -171,4 +171,14 @@ public class BossBehaviour : MonoBehaviour
             canon.StopShooting();
         }
     }
+
+    private void OnDestroy()
+    {
+        var waveSpawner = WaveSpawner._ins;
+        if(waveSpawner != null)
+        {
+            waveSpawner.currentLv++;
+            waveSpawner.Spawn();
+        }
+    }
 }

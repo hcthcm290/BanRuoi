@@ -33,6 +33,6 @@ public class StartGameUI : MonoBehaviour
         playerCanon.SetActive(true);
         button.SetActive(false);
 
-        waveSpawner.enabled = true;
+        waveSpawner.Spawn();
     }
 }

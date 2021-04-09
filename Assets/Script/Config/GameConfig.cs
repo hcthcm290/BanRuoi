@@ -6,14 +6,14 @@ using UnityEditor;
 [CreateAssetMenu(menuName = "Config/GameConfig", fileName = "GameConfig")]
 public class GameConfig : ScriptableObject
 {
-    [SerializeField] public List<PinkyConfig> baseConfigs;
+    [SerializeField] public List<BaseConfig> baseConfigs;
 
     //public WaveDatas data;
 
     public void OnValidate()
     {
-        baseConfigs.Clear();
-        baseConfigs.Add(CreateInstance<PinkyConfig>());
+        //baseConfigs.Clear();
+        //baseConfigs.Add(CreateInstance<PinkyConfig>());
     }
 }
 

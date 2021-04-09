@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class TextDialog : MonoBehaviour
 {
+    public static TextDialog _ins;
+
     [SerializeField]
     public string content;
     string contentShown = "";
@@ -46,6 +48,7 @@ public class TextDialog : MonoBehaviour
         theWholeThing.SetActive(false);
         text.text = contentShown;
         countTime = 0;
+        _ins = this;
     }
 
     // Update is called once per frame

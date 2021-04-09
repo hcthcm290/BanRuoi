@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -55,5 +56,10 @@ public class PlayerMovement : MonoBehaviour
         {
             this.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
         }
+    }
+
+    private void OnDestroy()
+    {
+        PrefabUtility.ApplyPrefabInstance(gameObject, InteractionMode.AutomatedAction);
     }
 }

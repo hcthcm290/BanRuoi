@@ -9,7 +9,7 @@ public class EnemyLaser : MonoBehaviour
     HealthBase playerHP;
 
     [SerializeField]
-    float DPS;
+    public float DPS;
 
     // Start is called before the first frame update
     void Start()

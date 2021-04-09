@@ -2,13 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
+[CreateAssetMenu(menuName = "Config/BaseConfig")]
 public class BaseConfig: ScriptableObject
+{
+    public virtual List<BaseConfigAsset> GetData()
+    {
+        return null;
+    }
+}
+
+public class BaseConfigAsset
 {
     public GameObject prefab;
     public string id;
-    public virtual void Create()
+    public virtual IEnumerator Create()
     {
-
+        yield return new WaitForSeconds(0);
     }
 }
