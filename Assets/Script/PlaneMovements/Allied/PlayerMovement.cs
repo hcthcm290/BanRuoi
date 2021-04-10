@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,12 +12,15 @@ public class PlayerMovement : MonoBehaviour
     CircleCollider2D TouchZone;
     bool canMove;
     Vector3 offset;
+    bool hide = false;
+
+    [SerializeField] HealthBase health;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        health.HPChange += OnHPChange;
     }
 
     // Update is called once per frame
@@ -24,8 +28,17 @@ public class PlayerMovement : MonoBehaviour
     {
         CheckCanMove();
         Move();
-
+        
         playerPosition = transform.position;
+
+        if (hide)
+        {
+            var pos = transform.position;
+
+            pos.z = -10;
+            transform.position = pos;
+        }
+
     }
 
     bool CheckCanMove()
@@ -60,6 +73,25 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDestroy()
     {
-        PrefabUtility.ApplyPrefabInstance(gameObject, InteractionMode.AutomatedAction);
+        //PrefabUtility.ApplyPrefabInstance(gameObject, InteractionMode.AutomatedAction);
+    }
+    
+    void OnHPChange(float currentHP)
+    {
+        if(currentHP == 0)
+        {
+            TextDialog._ins.content = "You Lose";
+            TextDialog._ins.Show();
+            hide = true;
+            StartCoroutine("EndGame");
+
+        }
+    }
+
+    IEnumerator EndGame()
+    {        yield return new WaitForSeconds(2.5f);
+        Destroy(gameObject);
+
+        SceneManager.LoadScene("MenuScene");
     }
 }

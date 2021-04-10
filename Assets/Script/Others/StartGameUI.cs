@@ -1,24 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StartGameUI : MonoBehaviour
 {
-    [SerializeField]
-    PlayerMovement playerMovement;
-    [SerializeField]
-    WaveSpawner waveSpawner;
-    [SerializeField]
-    GameObject playerCanon;
-    [SerializeField]
-    GameObject button;
+    //[SerializeField]
+    //PlayerMovement playerMovement;
+    //[SerializeField]
+    //WaveSpawner waveSpawner;
+    //[SerializeField]
+    //GameObject playerCanon;
+    //[SerializeField]
+    //GameObject button;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerMovement.enabled = false;
-        waveSpawner.enabled = false;
-        playerCanon.SetActive(false);
+        //playerMovement.enabled = false;
+        //waveSpawner.enabled = false;
+        //playerCanon.SetActive(false);
+
+
     }
 
     // Update is called once per frame
@@ -29,10 +32,12 @@ public class StartGameUI : MonoBehaviour
 
     public void StartGame()
     {
-        playerMovement.enabled = true;
-        playerCanon.SetActive(true);
-        button.SetActive(false);
+        //playerMovement.enabled = true;
+        //playerCanon.SetActive(true);
+        //button.SetActive(false);
 
-        waveSpawner.Spawn();
+        //waveSpawner.Spawn();
+
+        SceneManager.LoadScene("SampleScene");   
     }
 }

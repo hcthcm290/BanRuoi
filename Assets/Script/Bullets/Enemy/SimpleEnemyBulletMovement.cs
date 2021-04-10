@@ -37,6 +37,7 @@ public class SimpleEnemyBulletMovement : SimpleBullet
                 if(playerHP != null)
                 {
                     playerHP.TakeDmg(damage);
+                    Destroy(gameObject);
                 }
             }
         }

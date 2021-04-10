@@ -20,6 +20,7 @@ public class WaveSpawner : MonoBehaviour
     {
         currentLv = 1;
         _ins = this;
+        Spawn();
     }
 
     // Update is called once per frame
