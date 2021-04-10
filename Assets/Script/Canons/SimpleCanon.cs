@@ -15,6 +15,8 @@ public class SimpleCanon : BaseCanon
     protected float delayFirstTime;
     protected float waitFirstTime;
 
+    bool canShoot = false;
+
     public new virtual void CreateBullet()
     {
         if(Time.time - prevShootTime > interval)
@@ -30,22 +32,26 @@ public class SimpleCanon : BaseCanon
     public new void StartShooting()
     {
         prevShootTime = float.NegativeInfinity;
+        canShoot = true;
     }
 
     public new void StopShooting()
     {
-        prevShootTime = float.PositiveInfinity;
+        canShoot = false;    
     }
 
     // Start is called before the first frame update
     public void Start()
     {
         waitFirstTime = 0.0f;
+        StartShooting();
     }
 
     // Update is called once per frame
     public void Update()
     {
+        if (!canShoot)
+            return;
         if(waitFirstTime <= delayFirstTime)
         {
             waitFirstTime += Time.deltaTime;
