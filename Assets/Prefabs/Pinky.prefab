@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: -3851501042136887836}
   - component: {fileID: 7612905483702081374}
   - component: {fileID: 2433848135126311519}
+  - component: {fileID: 2482229488604316819}
   m_Layer: 0
   m_Name: Pinky
   m_TagString: Enemy
@@ -248,6 +249,20 @@ MonoBehaviour:
     type: 3}
   interval: 0
   delayFirstTime: 0
+--- !u!114 &2482229488604316819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3351407300687098119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f41c98ded7ce6945a998b2278efc5b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 3351407300687098170}
+  score: 200
 --- !u!1001 &4463252433251602806
 PrefabInstance:
   m_ObjectHideFlags: 0

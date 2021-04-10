@@ -1403,6 +1403,7 @@ GameObject:
   - component: {fileID: 207326388395916299}
   - component: {fileID: 207326388395916298}
   - component: {fileID: 207326388395916405}
+  - component: {fileID: 1587054075900590153}
   m_Layer: 0
   m_Name: boss
   m_TagString: Enemy
@@ -1543,6 +1544,20 @@ MonoBehaviour:
   balanceFactor: 0
   stat: 0
   hp: {fileID: 207326388395916298}
+--- !u!114 &1587054075900590153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207326388395916303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f41c98ded7ce6945a998b2278efc5b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 207326388395916298}
+  score: 5000
 --- !u!1 &207326388396635257
 GameObject:
   m_ObjectHideFlags: 0
